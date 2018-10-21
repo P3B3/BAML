@@ -26,10 +26,10 @@ def drawTree(df, crit):
     trainX, testX, trainY, testY = train_test_split( X, Y, test_size = 0.3)
     decision.fit(trainX, trainY)
     
-    print('Accuracy: \n', decision.score(testX, testY))
+    print('Accuracy: ', decision.score(testX, testY))
 
     dot_data = tree.export_graphviz(decision, out_file=None)
-    graph = graphviz.Source(dot_data).view("iris")
+    graphviz.Source(dot_data).view("iris")
 
 
 def score(df, crit):

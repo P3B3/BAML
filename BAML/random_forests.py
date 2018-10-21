@@ -25,10 +25,9 @@ def getRndForest(df):
     trainX, testX, trainY, testY = train_test_split( X, Y, test_size = 0.3)
     forest.fit(trainX, trainY)
 
-    print('Accuracy: \n', forest.score(testX, testY))
+    print('Accuracy: ', forest.score(testX, testY))
 
     pred = forest.predict(testX)
-
     return pred
 
 

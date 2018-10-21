@@ -27,27 +27,23 @@ def displayAll(df):
     plt.xlabel('Explanatory')
 
     linear = linear_model.LinearRegression()
-    trainX = np.asarray(df.X[20:len(df.X)]).reshape(-1, 1)
-    trainY = np.asarray(df.Y[20:len(df.Y)]).reshape(-1, 1)
-    testX = np.asarray(df.X[:20]).reshape(-1, 1)
-    testY = np.asarray(df.Y[:20]).reshape(-1, 1)
+    trainX = np.asarray(df.X[800:len(df.X)]).reshape(-1, 1)
+    trainY = np.asarray(df.Y[800:len(df.Y)]).reshape(-1, 1)
     linear.fit(trainX, trainY)
     linear.score(trainX, trainY)
 
-    print('Coefficient: \n', linear.coef_)
-    print('Intercept: \n', linear.intercept_)
-    print('R^2 Value: \n', linear.score(trainX, trainY))
+    print('Coefficient: ', linear.coef_)
+    print('Intercept: ', linear.intercept_)
+    print('R^2 Value: ', linear.score(trainX, trainY))
 
 
-def getLineRegPred(df):
+def getLineRegPred(df,data):
     linear = linear_model.LinearRegression()
-    trainX = np.asarray(df.X[20:len(df.X)]).reshape(-1, 1)
-    trainY = np.asarray(df.Y[20:len(df.Y)]).reshape(-1, 1)
-    testX = np.asarray(df.X[:20]).reshape(-1, 1)
-    testY = np.asarray(df.Y[:20]).reshape(-1, 1)
+    trainX = np.asarray(df.X[800:len(df.X)]).reshape(-1, 1)
+    trainY = np.asarray(df.Y[800:len(df.Y)]).reshape(-1, 1)
     linear.fit(trainX, trainY)
     linear.score(trainX, trainY)
-    predicted = linear.predict(testX)
+    predicted = linear.predict(data)
 
     return predicted
 
@@ -58,4 +54,3 @@ if __name__ == "__main__":
     drop_columns = None
     
     displayAll(setData(path, set_columns,drop_columns))
-    print (getLineRegPred(setData(path, set_columns,drop_columns)))

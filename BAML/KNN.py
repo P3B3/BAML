@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
-import ipywidgets as widgets
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -33,17 +32,17 @@ def displayAll(df):
     trainX, testX, trainY, testY = train_test_split( X, Y, test_size = 0.3)
     neighbors.fit(trainX, trainY)
     
-    print('Accuracy: \n', neighbors.score(testX, testY))
+    print('Accuracy: ', neighbors.score(testX, testY))
 
 
-def pred(df):
+def pred(df,data):
     neighbors = KNeighborsClassifier(n_neighbors=5)
     X = df.values[:, 0:2]
     Y = df.values[:, 2]
     trainX, testX, trainY, testY = train_test_split( X, Y, test_size = 0.3)
     neighbors.fit(trainX, trainY)
-    pred = neighbors.predict(testX)
-
+    pred = neighbors.predict(data)
+    
     return pred
 
 

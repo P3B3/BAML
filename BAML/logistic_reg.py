@@ -32,9 +32,9 @@ def displayAll(df):
     logistic.fit(X, Y)
     logistic.score(X, Y)
 
-    print('Coefficient: \n', logistic.coef_)
-    print('Intercept: \n', logistic.intercept_)
-    print('R^2 Value: \n', logistic.score(X, Y))
+    print('Coefficient: ', logistic.coef_)
+    print('Intercept: ', logistic.intercept_)
+    print('R^2 Value: ', logistic.score(X, Y))
 
 
 def getLogRegValues(df):

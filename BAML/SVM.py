@@ -35,13 +35,13 @@ def displayAll(df):
     plt.xlabel('X1')
 
 
-def getSVMpred(df):
+def getSVMpred(df,data):
     support = svm.SVC()
     X = df.values[:, 0:2]
     Y = df.values[:, 2]
     trainX, testX, trainY, testY = train_test_split( X, Y, test_size = 0.3)
     support.fit(trainX, trainY)
-    pred = support.predict(testX) 
+    pred = support.predict(data) 
 
     return pred
 

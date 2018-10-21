@@ -21,7 +21,6 @@ def getPCA(df):
     pca = decomposition.PCA()
     fa = decomposition.FactorAnalysis()
     X = df.values[:, 0:4]
-    Y = df.values[:, 4]
     train, test = train_test_split(X,test_size = 0.3)
     train_reduced = pca.fit_transform(train)
     test_reduced = pca.transform(test)
